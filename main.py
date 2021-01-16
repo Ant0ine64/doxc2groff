@@ -3,6 +3,7 @@
 import docx
 
 dic = {
+        'title': ".TL",
         'heading1': ".NH",
         'heading2': ".NH 2",
         'heading2': ".NH 3",
@@ -14,9 +15,13 @@ outfile = open("output.ms", "w")
 
 for para in document.paragraphs:
     if para.style.name=='Heading 1':
+        # Happens once
         print("titre : " + para.text)
-        outfile.write(dic['heading1'] + "\n" + para.text + "\n")
+        outfile.write(dic['title'] + "\n" + para.text + "\n")
     elif para.style.name=='Heading 2':
+        print("titre2 : " + para.text)
+        outfile.write(dic['heading1'] + "\n" + para.text + "\n")
+    elif para.style.name=='Heading 3':
         print("titre2 : " + para.text)
         outfile.write(dic['heading2'] + "\n" + para.text + "\n")
     else:
